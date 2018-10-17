@@ -4,7 +4,7 @@
 #include <string.h>
 
 typedef struct{
-    int numero[50];
+    int numero[60];
     int Topo;
 } Pilha;
 
@@ -17,7 +17,7 @@ int PilhaVazia(Pilha *pilha){
 }
 
 int Empilha(int x, Pilha *pilha){
-    if (pilha->Topo == (50-1))
+    if (pilha->Topo == (60-1))
         return 0;
     else{
         pilha->Topo = pilha->Topo + 1;
@@ -85,8 +85,8 @@ int main()
     {
         long long int dec;
         char bit;
-        Pilha bin;
-        FazPilhaVazia(&bin);
+        Pilha pilha;
+        FazPilhaVazia(&pilha);
 
         printf("Escolha uma opcao:\n\n");
         printf("1. Decimal para Binario\n");
@@ -101,9 +101,9 @@ int main()
                 printf("\nNumero (decimal): ");
                 scanf("%I64d", &dec);
                 printf("\n\n");
-                converBin(dec, &bin);
+                converBin(dec, &pilha);
                 printf("Numero (binario): ");
-                ImprimePilha(&bin);
+                ImprimePilha(&pilha);
                 printf("\n\n");
                 break;
 
@@ -112,12 +112,12 @@ int main()
                 scanf("%s", &bit);
                 printf("\n\n");
                 printf("Numero (decimal): ");
-                converDec(&bit, &bin);
+                converDec(&bit, &pilha);
                 printf("\n\n");
                 break;
 
             case 3:
-                printf("\n\n Bye, bye!");
+                printf("\n\n Bye, bye!\n\n");
                 break;
 
             default:
@@ -125,6 +125,5 @@ int main()
                 printf("*** Digite uma opcao valida! ***\n\n");
         }
     } while(continuar!=3);
-
     return 0;
 }
